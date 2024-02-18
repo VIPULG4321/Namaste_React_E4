@@ -36,3 +36,141 @@
     transform: rotate(360deg);
   }
 }
+
+/* Header  */
+#header_container #Header{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: azure; */
+  border: 1px solid black;
+}
+#header_container #Header .logo{
+  padding: 20px 20px 10px 90px;
+}
+#header_container #Header .logo img{
+  width: 100px;
+  border-radius: 60%;
+}
+#header_container #Header .nav_items{
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#header_container #Header .nav_items h3{
+  padding: 20px;
+  font-weight: 100;
+}
+#header_container #Header .banner h2{
+  font-size: 45px;
+}
+
+/* Search  */
+#header_container > div.search{
+  border: 1px solid black;
+  height: 70px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 8%;
+  gap: 1rem;
+}
+
+#header_container > div.search > input{
+  height: 35px;
+  border-radius: 5px;
+  outline: none;
+}
+
+#header_container > div.search > button{
+  height: 35px;
+  border-radius: 5px;
+  outline: none;
+  color: darkcyan;
+  background-color: aquamarine;
+}
+
+/* Cards */
+#items{
+  width: 100%;
+  /* height: 100%; */
+  display: grid;
+  column-gap: 0px;
+  row-gap: 0px;
+  grid-template-rows: 450px 450px 450px 450px 450px;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+#items > div.card {
+  /* width: 300px; */
+  /* box-shadow: 10px 10px #f0f0f0; */
+  
+  width: 16.5vw;
+  /* height: 350px; */
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  outline: black 0 10px;
+}
+#items > div.card:hover{
+  /* margin: 10px; */
+  /* padding: 15px; */
+  box-shadow: rgba(103, 120, 137, 0.2) 20px 20px 20px;
+}
+
+/* card and Image In card */
+#items > div > div.card_img{
+  width: 100%;
+  height: 250px;
+}
+#items > div > div.card_img > img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: 0px -10px;
+}
+
+/* #items > div > div.card_img:hover + .class_details p{
+  transition-duration: 0.1s;
+  font-size: 18px;
+}  */
+/* working  */
+
+#items> div.card > .class_details{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  /* padding: 0 1px 0 7px; */
+}
+#items > div.card > .class_details p{
+  width: 100%;
+  margin: 0;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px 0 10px;
+}
+
+#items > div.card > .class_details .name{
+  display: flex;
+  align-items: flex-start;
+  font-weight: 600;
+  /* margin-left: -15px; */
+}
+#items > div > div.class_details > p.cuisines{
+  font-weight: 500;
+  text-wrap: wrap;
+
+}
+#items > div > div.class_details > p.cuisines span{
+  text-wrap: wrap;
+}
