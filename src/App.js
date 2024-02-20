@@ -15,6 +15,8 @@ function App() {
         <div className='nav_items'>
           <h2>Home</h2>
           <h2>Contact</h2>
+          <h2>Contact</h2>
+          <h2>Contact</h2>
           <h2>About US</h2>
           <h2>Cart</h2>
         </div>
