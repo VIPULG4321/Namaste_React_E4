@@ -2254,4 +2254,4 @@ const restaurants = [
     }
 ];
 
-export default restourantData; 
+export default restaurants; 
