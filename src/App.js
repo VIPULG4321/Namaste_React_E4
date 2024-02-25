@@ -36,9 +36,6 @@ function App() {
             restourantData.map((restourant, index)=>(
               <Foods key={index} RestData={restourant}/>
             ))
-            // mydata.map((restourant, index)=>(
-            //   <Foods key={index} RestData={restourant}/>
-            // ))
           }
         </div>
       </div>
