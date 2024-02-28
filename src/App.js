@@ -3,21 +3,17 @@ import Search from "./components/Search";
 import Foods from "./components/Foods";
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import initialRestourantData from "./utils/restourant";
+import Shimmer from "./components/shimmerUI";
 
 function App() {
-  const [restourantData, setRestourantData] = useState(initialRestourantData);
+  const [restourantData, setRestourantData] = useState([]);
+
   
   const handleFilterClick = () => {
-    const newFilteredData = initialRestourantData.filter(
+    const newFilteredData = restourantData.filter(
       (item) => item.info.avgRating > 4
       );
       setRestourantData(newFilteredData);
-    };
-    
-    const handle_Back = () => {
-      const filteredData = initialRestourantData.map((item) => item);
-      setRestourantData(filteredData);
     };
     
     useEffect(() => {
@@ -25,14 +21,17 @@ function App() {
     }, []);
 
     const fetchData = async () => {
-      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.145269550486525&lng=72.83064298331738&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
 
       const json = await data.json();
-      console.log(json); 
 
+      const {restaurants} = json?.data.cards[1].card.card.gridElements.infoWithStyle; //optional chaining.
+      
+      setRestourantData(restaurants); //setRestourantData() is a setstate function which setting the state of state variable.
+      
     }
 
-  return (
+  return (restourantData.length === 0) ? <Shimmer /> : (
     <div className="App">
       <div id="header_container">
         <Header />
@@ -41,12 +40,9 @@ function App() {
           Top rated - restaurants
         </button>
 
-        <button className="back" onClick={handle_Back}>
-          Back
-        </button>
         <div id="items">
           {restourantData.map((restourant, index) => (
-            <Foods key={index} RestData={restourant} />
+            <Foods key={index} RestData={restourant} /> 
           ))}
         </div>
       </div>
