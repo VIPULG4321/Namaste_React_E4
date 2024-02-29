@@ -9,7 +9,7 @@ function App() {
   const [restourantData, setRestourantData] = useState([]);
 
   
-  const handleFilterClick = () => {
+  const handleFilterClick = () => { 
     const newFilteredData = restourantData.filter(
       (item) => item.info.avgRating > 4
       );
