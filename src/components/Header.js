@@ -1,9 +1,13 @@
 import myimage from "../logo.jpg";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const Header = () => {
 
   const [new_User, setnewUser] = useState("login");
+  
+  useEffect(()=>{
+    
+  },[])
 
   return (
     <div id="Header">

@@ -4,20 +4,31 @@ import Foods from "./components/Foods";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import Shimmer from "./components/shimmerUI";
+import { createBrowserRouter } from "react-router-dom";
+import About from "./components/About";
 
 function App() {
   const [restourantData, setRestourantData] = useState([]);
   const [searchValue, setsearchValue] = useState("");
-  const [filteredRestourants, setfilteredRestourants] = useState([]);
+  const [filteredRestourants, setfilteredRestourants] = useState([]); 
 
+  const appRouter = createBrowserRouter([
+    {
+      path : "/",
+      element : <App></App>
+    },{
+      path : "/about",
+      element : <About></About>
+    }
+  ])
 
   
   const handleFilterClick = () => { 
 
     const newFilteredData = restourantData.filter(
-      (item) => item.info.avgRating > 4.4
+      (item) => item.info.avgRating > 4.0
       );
-      setRestourantData(newFilteredData);
+      setfilteredRestourants(newFilteredData);
     };
     
     useEffect(() => {
@@ -26,20 +37,16 @@ function App() {
 
     const fetchData = async () => {
       const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.145269550486525&lng=72.83064298331738&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
-      // const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9921457&lng=72.846563&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTIN`);
 
       // https:/corsproxy.io/
-
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
 
       const {restaurants} = json?.data.cards[1].card.card.gridElements.infoWithStyle; //optional chaining.
       
       setRestourantData(restaurants);
       setfilteredRestourants(restaurants);
-      
       //setRestourantData() is a setstate function which setting the state of state variable.
-      
     }
 
   return (restourantData.length === 0) ? <Shimmer /> : (
