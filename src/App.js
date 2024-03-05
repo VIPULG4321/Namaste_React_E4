@@ -1,26 +1,27 @@
 import Header from "./components/Header";
 // import Search from "./components/Search";
 import Foods from "./components/Foods";
+import Shimmer from "./components/shimmerUI";
+import About from "./components/pages/About";
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import Shimmer from "./components/shimmerUI";
-import { createBrowserRouter } from "react-router-dom";
-import About from "./components/About";
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
   const [restourantData, setRestourantData] = useState([]);
   const [searchValue, setsearchValue] = useState("");
-  const [filteredRestourants, setfilteredRestourants] = useState([]); 
+  const [filteredRestourants, setfilteredRestourants] = useState([]);
 
-  const appRouter = createBrowserRouter([
-    {
-      path : "/",
-      element : <App></App>
-    },{
-      path : "/about",
-      element : <About></About>
-    }
-  ])
+  // const appRouter = createBrowserRouter([
+  //   {
+  //     path : "/",
+  //     element : <App></App>
+  //   },
+  //   {
+  //     path : "/about",
+  //     element : <About></About>
+  //   }
+  // ])
 
   
   const handleFilterClick = () => { 
