@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import myimage from "../logo.jpg";
 import { useState,useEffect } from "react";
 
@@ -18,9 +19,9 @@ const Header = () => {
         <h2>Shine Restaurant</h2>
       </div>
       <div className="nav_items">
-        <h2>Home</h2>
-        <h2>Contact</h2>
-        <h2>About US</h2>
+        <h2><Link to="/">Home</Link></h2> 
+        <h2><Link to="/contact">Contact</Link></h2>
+        <h2><Link to="/about">About US</Link></h2>
         <h2>Cart</h2>
 
         <button className="login" onClick={()=>{

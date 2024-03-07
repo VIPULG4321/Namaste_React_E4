@@ -4,24 +4,43 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import About from "./components/pages/About";
+import Header from "./components/Header";
 import Contact from "./components/pages/Contact"; 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./components/pages/Error";
+import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
+
+const Applayout = () => {
+  return (
+    <div id='header_container'>
+      <Header />
+      <Outlet></Outlet>
+    </div> 
+  )
+}
 
 const appRouter = createBrowserRouter([
   {
     path : "/",
-    element : <App></App>
+    element : <Applayout></Applayout>,
+    children : [
+      {
+        path : "/",
+        element : <App></App>
+      },
+      {
+        path : "/about",
+        element : <About></About>
+      },
+      {
+        path:"/contact",
+        element: <Contact></Contact>
+      }
+    ], 
+    errorElement : <Error></Error> 
   },
-  {
-    path : "/about",
-    element : <About></About>
-  },
-  {
-    path:"/contact",
-    element: <Contact></Contact>
-  }
-
+  
 ])
+
 
 const root = ReactDOM.createRoot(document.getElementById('root')); 
 root.render(
