@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+// import Header from "./components/Header";
 // import Search from "./components/Search";
 import Foods from "./components/Foods";
 import Shimmer from "./components/shimmerUI";
@@ -44,7 +44,7 @@ function App() {
   const handleFilterClick = () => { 
 
     const newFilteredData = restourantData.filter(
-      (item) => item.info.avgRating > 4.0
+      (item) => item.info.avgRating > 4.5
       );
       setfilteredRestourants(newFilteredData);
     };
@@ -58,7 +58,7 @@ function App() {
 
       // https:/corsproxy.io/
       const json = await data.json();
-      // console.log(json);
+      // console.log(json); 
 
       const {restaurants} = json?.data.cards[1].card.card.gridElements.infoWithStyle; //optional chaining.
       
