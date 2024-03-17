@@ -91,15 +91,22 @@
 }
 
 /* Cards */
-#items{
+/* height: 100%; */
+/* display: grid;
+column-gap: 10px;
+row-gap: 10px;
+grid-template-rows: 350px 350px 350px 350px 350px;
+grid-template-columns: 300px 300px 300px 300px 300px; */
+/* margin: 0 20px; */
+
+/* #items > div > div.card_img:hover + .class_details p{
+  transition-duration: 0.1s;
+  font-size: 18px;
+}  */
+/* working  */
+
+/* #items{
   width: 80%;
-  /* height: 100%; */
-  /* display: grid;
-  column-gap: 10px;
-  row-gap: 10px;
-  grid-template-rows: 350px 350px 350px 350px 350px;
-  grid-template-columns: 300px 300px 300px 300px 300px; */
-  /* margin: 0 20px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -121,14 +128,12 @@
 }
 #items > div.card:hover{
   box-shadow: rgba(103, 120, 137, 0.434) 20px 20px 30px,rgba(103, 120, 137, 0.388) -20px -20px 30px;
-  /* width: 255px; */
-  /* height: 360px; */
   background-color: #f0f0f0;
   transition-duration: 0.7s;
   cursor: pointer;
 }
 
-/* card and Image In card */
+card and Image In card
 #items > div > div.card_img{
   width: 100%;
   height: 180px;
@@ -138,11 +143,7 @@
   color: yellow;
 }
 #items > div > div.card_img > img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  /* object-position: 0px -20px; */
-  border-radius: 10px 10px 0 0;
+  
 }
 .costfortwo{
   margin: 0;
@@ -152,25 +153,16 @@
   -webkit-text-stroke: 1px red;
 }
 
-/* #items > div > div.card_img:hover + .class_details p{
-  transition-duration: 0.1s;
-  font-size: 18px;
-}  */
-/* working  */
-
 #items> div.card > .class_details{
   width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* row-gap: 0.5rem; */
-  /* border: 1px solid black; */
 }
 #items > div.card > .class_details p{
   width: 100%;
   margin: 0;
-  /* font-size: 18px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,7 +177,6 @@
   font-weight: 500;
   font-size: 18px;
   margin: 10px 10px 5px 10px;
-  /* padding: 10px 0 0 0; */
   word-wrap: wrap;
 }
 #items > div > div.class_details > p.cuisines{
@@ -198,10 +189,95 @@
 }
 #items > div:nth-child(2) > div.class_details > p:nth-child(3){
   padding: 5px 0;
-}
-/* .loc{
-  font-size: 18px;
 } */
+
+/* Search bar and button  */
+#header_container > div.Search{
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cards  */
+#items{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  
+}
+#items > a{
+  width: 20%;
+  color: black;
+  text-decoration: none;
+}
+#items > a > .card{
+  /* width: 100%;
+  border: 1px solid black;
+  border-radius: 10px 10px; */
+  width: 100%;
+  height: 350px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.301);
+}
+#items > a > .card:hover{
+  box-shadow: rgba(103, 120, 137, 0.434) 20px 20px 30px,rgba(103, 120, 137, 0.388) -20px -20px 30px;
+  background-color: #f0f0f0;
+  transition-duration: 0.7s;
+  cursor: pointer;
+}
+#items > a > div > div.card_img{
+  /* width: 100%; */
+  width: 100%;
+  height: 180px;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  color: yellow;
+}
+#items > a > div > div.card_img > img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+#items > a > div > div.class_details{
+  /* width: 100%; */
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin: 20px 0; */
+}
+#items > a > div > div.class_details > h3{
+  margin: 7px;
+  padding: 5px 5px 5px 5px;
+}
+#items > a > div > div.class_details > p{
+  width: 100%;
+  margin: 1px 10px;
+}
+.costfortwo{
+  margin: 0;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  -webkit-text-stroke: 1px red;
+}
+
+
 
 /* shimmer UI  */
 

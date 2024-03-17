@@ -7,7 +7,7 @@ import About from "./components/pages/About";
 import Header from "./components/Header";
 import Contact from "./components/pages/Contact"; 
 import Error from "./components/pages/Error";
-import Restourants from "./components/pages/Restourants";
+import RestourantMenu from "./components/pages/RestourantMenu";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 
 const Applayout = () => {
@@ -39,7 +39,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"/restourants/:resID",
-        element: <Restourants></Restourants> 
+        element: <RestourantMenu></RestourantMenu> 
       }
     ], 
     errorElement : <Error></Error> 
@@ -51,7 +51,7 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root')); 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={appRouter} />
+    <RouterProvider router={appRouter} /> 
   </React.StrictMode>
 );
 

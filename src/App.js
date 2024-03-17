@@ -4,6 +4,7 @@ import Foods from "./components/Foods";
 import Shimmer from "./components/shimmerUI";
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function App() {
   const [restourantData, setRestourantData] = useState([]);
@@ -13,7 +14,7 @@ function App() {
   const Searchh = () => {
     return (
       <div className="Search">
-          <input type="email" id="search-box" value={searchValue} onChange={(e)=>{setsearchValue(e.target.value)}}></input>
+          <input type="text" id="search-box" value={searchValue} onChange={(e)=>{setsearchValue(e.target.value)}}></input>
           <button onClick={()=>{
 
             const filteredData =  restourantData.filter((res)=>{
@@ -31,16 +32,19 @@ function App() {
     
   }
   const AllFoods = () => {
+    console.log(filteredRestourants);
     return (
       <div id="items">
-          {filteredRestourants.map((restourant, index) => (
-            <Foods key={index} RestData={restourant} /> 
+        
+          {filteredRestourants.map((restourant) => (
+            <Link className="link" key={restourant.info.id} to={"/restourants/" + restourant.info.id}><Foods RestData={restourant} /></Link>
           ))}
         </div>
     )
   }
 
-  
+  // <Link key={restourant.info.id} to={"/restourants/" + restourant.info.id}></Link>
+
   const handleFilterClick = () => { 
 
     const newFilteredData = restourantData.filter(
