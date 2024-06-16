@@ -4,7 +4,6 @@ const User = (props) => {
     console.log(props);
     const {name,contact} = props;
     const [count] = useState(0);
-
     return (
         <div className="user-card">
             <h1>Count : {count}</h1>

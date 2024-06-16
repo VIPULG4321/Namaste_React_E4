@@ -57,9 +57,11 @@
   justify-content: space-around;
   align-items: center;
 }
-#header_container #Header .nav_items h3{
-  padding: 20px;
-  font-weight: 100;
+#header_container #Header .nav_items h2 a{
+  /* padding: 20px;
+  font-weight: 100; */
+  text-decoration: none;
+  color: black;
 }
 #header_container #Header .banner h2{
   font-size: 45px;

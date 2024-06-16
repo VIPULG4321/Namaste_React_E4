@@ -14,66 +14,84 @@ function App() {
   const Searchh = () => {
     return (
       <div className="Search">
-          <input type="text" id="search-box" value={searchValue} onChange={(e)=>{setsearchValue(e.target.value)}}></input>
-          <button onClick={()=>{
-
-            const filteredData =  restourantData.filter((res)=>{
-              return res.info.name.toLowerCase().includes(searchValue.toLowerCase());
-            })
+        <input
+          type="text"
+          id="search-box"
+          value={searchValue}
+          onChange={(e) => {
+            setsearchValue(e.target.value);
+          }}
+        ></input>
+        <button
+          onClick={() => {
+            const filteredData = restourantData.filter((res) => {
+              return res.info.name
+                .toLowerCase()
+                .includes(searchValue.toLowerCase());
+            });
             setfilteredRestourants(filteredData);
-            
-          }}>Search</button>
+          }}
+        >
+          Search
+        </button>
 
-          <button className="filter" onClick={handleFilterClick}>
-            Top rated - restaurants
-          </button>
-        </div>
-    )
-    
-  }
+        <button className="filter" onClick={handleFilterClick}>
+          Top rated - restaurants
+        </button>
+      </div>
+    );
+  };
   const AllFoods = () => {
     console.log(filteredRestourants);
+    
     return (
       <div id="items">
-        
-          {filteredRestourants.map((restourant) => (
-            <Link className="link" key={restourant.info.id} to={"/restourants/" + restourant.info.id}><Foods RestData={restourant} /></Link>
-          ))}
-        </div>
-    )
-  }
+        {filteredRestourants.map((restourant) => (
+          <Link
+            className="link"
+            key={restourant.info.id}
+            to={"/restourants/" + restourant.info.id}
+          >
+            <Foods RestData={restourant} />
+          </Link>
+        ))}
+      </div>
+    );
+  };
 
   // <Link key={restourant.info.id} to={"/restourants/" + restourant.info.id}></Link>
 
-  const handleFilterClick = () => { 
-
+  const handleFilterClick = () => {
     const newFilteredData = restourantData.filter(
       (item) => item.info.avgRating > 4.5
-      );
-      setfilteredRestourants(newFilteredData);
-    };
-    
-    useEffect(() => {
-      fetchData();
-    }, []);
+    );
+    setfilteredRestourants(newFilteredData);
+  };
 
-    const fetchData = async () => {
-      const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.145269550486525&lng=72.83064298331738&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-      // https:/corsproxy.io/
-      const json = await data.json();
-      // console.log(json); 
+  const fetchData = async () => {
+    const data = await fetch(
+      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.145269550486525&lng=72.83064298331738&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+    );
 
-      const {restaurants} = json?.data.cards[1].card.card.gridElements.infoWithStyle; //optional chaining.
-      
-      setRestourantData(restaurants);
-      setfilteredRestourants(restaurants);
-      //setRestourantData() is a setstate function which setting the state of state variable.
-    }
+    // https:/corsproxy.io/
+    const json = await data.json();
+    // console.log(json);
 
-    
+    const { restaurants } =
+      json?.data.cards[1].card.card.gridElements.infoWithStyle; //optional chaining.
 
-  return (restourantData.length === 0) ? <Shimmer /> : (
+    setRestourantData(restaurants);
+    setfilteredRestourants(restaurants);
+    //setRestourantData() is a setstate function which setting the state of state variable.
+  };
+
+  return restourantData.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="App">
       <div id="header_container">
         <Searchh></Searchh>
